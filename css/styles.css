@@ -1,0 +1,455 @@
+/* ============================================
+   RESET & GLOBAL STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   GREETING SECTION
+   ============================================ */
+.greeting-section {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.greeting-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.greeting-message {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 0;
+}
+
+.current-time {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+.current-date {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* ============================================
+   FOCUS TIMER SECTION
+   ============================================ */
+.focus-timer-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.timer-container h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.timer-display {
+  font-size: 4rem;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #764ba2;
+  letter-spacing: 4px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.timer-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.timer-start {
+  background-color: #27ae60;
+  color: white;
+}
+
+.timer-start:hover:not(:disabled) {
+  background-color: #229954;
+  transform: translateY(-2px);
+}
+
+.timer-pause {
+  background-color: #f39c12;
+  color: white;
+}
+
+.timer-pause:hover:not(:disabled) {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.timer-reset {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.timer-reset:hover:not(:disabled) {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.timer-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.timer-notification {
+  background-color: #d5f4e6;
+  color: #27ae60;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  display: none;
+}
+
+/* ============================================
+   TODO LIST SECTION
+   ============================================ */
+.todo-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todo-section h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.todo-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.todo-add-btn {
+  padding: 12px 24px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.todo-add-btn:hover {
+  background-color: #5568d3;
+}
+
+.error-message {
+  background-color: #fadbd8;
+  color: #e74c3c;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.todo-title {
+  flex: 1;
+  color: #333;
+  font-size: 1rem;
+}
+
+.todo-edit-btn,
+.todo-delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.todo-edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.todo-edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.todo-delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.todo-delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* ============================================
+   QUICK LINKS SECTION
+   ============================================ */
+.quick-links-section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links-section h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.quick-links-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.quick-link-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.quick-link-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.quick-link-add-btn {
+  padding: 12px 24px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.quick-link-add-btn:hover {
+  background-color: #5568d3;
+}
+
+.quick-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.quick-link-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.quick-link-btn {
+  background-color: #667eea;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.quick-link-btn:hover {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+}
+
+.quick-link-edit-btn,
+.quick-link-delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.quick-link-edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.quick-link-edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.quick-link-delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.quick-link-delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.hidden {
+  display: none;
+}
+
+.success {
+  background-color: #d5f4e6;
+  color: #27ae60;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .greeting-message {
+    font-size: 2rem;
+  }
+
+  .current-time {
+    font-size: 2.5rem;
+  }
+
+  .timer-display {
+    font-size: 3rem;
+  }
+
+  .todo-input-container,
+  .quick-links-input-container {
+    flex-direction: column;
+  }
+
+  .todo-input,
+  .quick-link-input {
+    min-width: 100%;
+  }
+
+  .todo-add-btn,
+  .quick-link-add-btn {
+    width: 100%;
+  }
+
+  .quick-links-list {
+    flex-direction: column;
+  }
+}

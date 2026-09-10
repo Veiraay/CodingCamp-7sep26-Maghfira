@@ -1,0 +1,537 @@
+/* ============================================
+   RESET & GLOBAL STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ============================================
+   MAIN DASHBOARD LAYOUT
+   ============================================ */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   GREETING SECTION
+   ============================================ */
+.greeting-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.greeting-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.greeting-message {
+  font-size: 3em;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0;
+}
+
+.current-time {
+  font-size: 2.5em;
+  font-family: 'Courier New', monospace;
+  color: #333;
+  font-weight: 600;
+}
+
+.current-date {
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* ============================================
+   FOCUS TIMER SECTION
+   ============================================ */
+.focus-timer-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.timer-container h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin: 0;
+}
+
+.timer-display {
+  font-size: 4em;
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timer-btn {
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timer-start {
+  background-color: #27ae60;
+  color: white;
+}
+
+.timer-start:hover:not(:disabled) {
+  background-color: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
+}
+
+.timer-pause {
+  background-color: #f39c12;
+  color: white;
+}
+
+.timer-pause:hover:not(:disabled) {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(243, 156, 18, 0.3);
+}
+
+.timer-reset {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.timer-reset:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+}
+
+.timer-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.timer-notification {
+  padding: 15px 20px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid #c3e6cb;
+}
+
+/* ============================================
+   TODO LIST SECTION
+   ============================================ */
+.todo-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.todo-section h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.todo-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.todo-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 15px;
+  font-size: 1em;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.todo-add-btn {
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.todo-add-btn:hover {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+.error-message {
+  padding: 12px 15px;
+  background-color: #fadbd8;
+  color: #c0392b;
+  border-left: 4px solid #e74c3c;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #667eea;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #f0f1ff;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+  border-left-color: #27ae60;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.todo-title {
+  flex: 1;
+  font-size: 1em;
+  color: #333;
+}
+
+.todo-edit-btn,
+.todo-delete-btn {
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.todo-edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.todo-edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.todo-delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.todo-delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* ============================================
+   QUICK LINKS SECTION
+   ============================================ */
+.quick-links-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links-section h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.quick-links-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.quick-link-input {
+  padding: 12px 15px;
+  font-size: 1em;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  flex: 1;
+  min-width: 150px;
+}
+
+.quick-link-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.quick-link-add-btn {
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-link-add-btn:hover {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+}
+
+.quick-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.quick-link-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.quick-link-item:hover {
+  background-color: #f0f1ff;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+.quick-link-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quick-link-btn:hover {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.quick-link-edit-btn,
+.quick-link-delete-btn {
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.quick-link-edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.quick-link-edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.quick-link-delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.quick-link-delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.hidden {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 0;
+  }
+
+  .greeting-section,
+  .focus-timer-section,
+  .todo-section,
+  .quick-links-section {
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .greeting-message {
+    font-size: 2em;
+  }
+
+  .current-time {
+    font-size: 2em;
+  }
+
+  .timer-display {
+    font-size: 3em;
+  }
+
+  .todo-input-container,
+  .quick-links-input-container {
+    flex-direction: column;
+  }
+
+  .todo-input,
+  .quick-link-input {
+    width: 100%;
+  }
+
+  .todo-add-btn,
+  .quick-link-add-btn {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-wrap: wrap;
+  }
+
+  .todo-title {
+    width: 100%;
+  }
+
+  .timer-controls {
+    flex-direction: column;
+  }
+
+  .timer-btn {
+    width: 100%;
+  }
+
+  .quick-links-list {
+    flex-direction: column;
+  }
+
+  .quick-link-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .greeting-section,
+  .focus-timer-section,
+  .todo-section,
+  .quick-links-section {
+    padding: 20px 15px;
+  }
+
+  .greeting-message {
+    font-size: 1.5em;
+  }
+
+  .current-time {
+    font-size: 1.5em;
+  }
+
+  .timer-display {
+    font-size: 2.5em;
+  }
+
+  .todo-section h2,
+  .focus-timer-section h2,
+  .quick-links-section h2 {
+    font-size: 1.3em;
+  }
+}
